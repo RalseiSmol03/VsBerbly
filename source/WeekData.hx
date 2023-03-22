@@ -1,9 +1,9 @@
 package;
 
-#if MODS_ALLOWED
+//#if MODS_ALLOWED
 import sys.io.File;
 import sys.FileSystem;
-#end
+//#end
 import lime.utils.Assets;
 import openfl.utils.Assets as OpenFlAssets;
 import haxe.Json;
