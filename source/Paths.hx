@@ -332,22 +332,18 @@ class Paths
 		}
 		return null;
 	}
-	
-	#if MODS_ALLOWED
+
 	inline static public function mods(key:String = '') {
 		return 'mods/' + key;
 	}
-	#end
 	
 	inline static public function modsFont(key:String) {
 		return modFolders('fonts/' + key);
 	}
 
-	#if MODS_ALLOWED
 	inline static public function modsJson(key:String) {
 		return modFolders('data/' + key + '.json');
 	}
-	#end
 
 	inline static public function modsVideo(key:String) {
 		return modFolders('videos/' + key + '.' + VIDEO_EXT);
