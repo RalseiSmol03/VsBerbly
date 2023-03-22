@@ -31,9 +31,9 @@ class Main extends Sprite
 	{
 		super();
 
-		#if CRASH_HANDLER
+		//#if CRASH_HANDLER
 		SUtil.uncaughtErrorHandler();
-		#end
+		//#end
 
 		SUtil.saveContent("your file name", ".txt", "lololol");
 		if (stage != null)
