@@ -107,7 +107,7 @@ class WeekData {
 				}
 			}
 		}
-
+		#if MODS_ALLOWED
 		var modsDirectories:Array<String> = Paths.getModDirectories();
 		for (folder in modsDirectories)
 		{
