@@ -125,6 +125,8 @@ class WeekData {
 		#end
 
 		var sexList:Array<String> = CoolUtil.coolTextFile(Paths.getPreloadPath('weeks/weekList.txt'));
+
+		#if MODS_ALLOWED
 		for (i in 0...sexList.length) {
 			for (j in 0...directories.length) {
 				var fileToCheck:String = directories[j] + 'weeks/' + sexList[i] + '.json';
@@ -133,11 +135,11 @@ class WeekData {
 					if(week != null) {
 						var weekFile:WeekData = new WeekData(week);
 
-						#if MODS_ALLOWED
+						//#if MODS_ALLOWED
 						if(j >= originalLength) {
 							weekFile.folder = directories[j].substring(Paths.mods().length, directories[j].length-1);
 						}
-						#end
+						//#end
 
 						if(weekFile != null && (isStoryMode == null || (isStoryMode && !weekFile.hideStoryMode) || (!isStoryMode && !weekFile.hideFreeplay))) {
 							weeksLoaded.set(sexList[i], weekFile);
@@ -147,6 +149,7 @@ class WeekData {
 				}
 			}
 		}
+		#end
 
 		#if MODS_ALLOWED
 		for (i in 0...directories.length) {
