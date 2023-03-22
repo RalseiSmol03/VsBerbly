@@ -43,11 +43,11 @@ import lime.media.AudioBuffer;
 import haxe.io.Bytes;
 import flash.geom.Rectangle;
 import flixel.util.FlxSort;
-#if MODS_ALLOWED
+//#if MODS_ALLOWED
 import sys.io.File;
 import sys.FileSystem;
 import flash.media.Sound;
-#end
+//#end
 
 using StringTools;
 
