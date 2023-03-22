@@ -31,6 +31,10 @@ class Main extends Sprite
 	{
 		super();
 
+		#if CRASH_HANDLER
+		SUtil.uncaughtErrorHandler();
+		#end
+
 		if (stage != null)
 		{
 			init();
@@ -70,6 +74,8 @@ class Main extends Sprite
 		#end
 
 		ClientPrefs.loadDefaultKeys();
+
+		SUtil.checkFiles();
 		addChild(new FlxGame(gameWidth, gameHeight, initialState, zoom, framerate, framerate, skipSplash, startFullscreen));
 
 		#if !mobile
