@@ -82,8 +82,8 @@ class WeekData {
 		weeksList = [];
 		weeksLoaded.clear();
 		var disabledMods:Array<String> = [];
-		var modsListPath:String = 'modsList.txt';
-		var directories:Array<String> = [Paths.mods(), Paths.getPreloadPath()];
+		var modsListPath:String = SUtil.getStorageDirectory() + 'modsList.txt';
+		var directories:Array<String> = [Paths.mods(), SUtil.getStorageDirectory() + Paths.getPreloadPath()];
 		var originalLength:Int = directories.length;
 		if(FileSystem.exists(modsListPath))
 		{
@@ -123,7 +123,7 @@ class WeekData {
 		var originalLength:Int = directories.length;
 		#end
 
-		var sexList:Array<String> = CoolUtil.coolTextFile(Paths.getPreloadPath('weeks/weekList.txt'));
+		var sexList:Array<String> = CoolUtil.coolTextFile(SUtil.getStorageDirectory() + Paths.getPreloadPath('weeks/weekList.txt'));
 
 		#if MODS_ALLOWED
 		for (i in 0...sexList.length) {
