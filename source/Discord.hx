@@ -1,6 +1,8 @@
 package;
 
+#if sys
 import Sys.sleep;
+#end
 import discord_rpc.DiscordRpc;
 
 #if LUA_ALLOWED
@@ -12,6 +14,7 @@ using StringTools;
 
 class DiscordClient
 {
+	public static var isInitialized:Bool = false;
 	public function new()
 	{
 		trace("Discord Client starting...");
@@ -26,7 +29,9 @@ class DiscordClient
 		while (true)
 		{
 			DiscordRpc.process();
+			#if sys
 			sleep(2);
+			#end
 			//trace("Discord Client Update");
 		}
 
@@ -65,6 +70,7 @@ class DiscordClient
 			new DiscordClient();
 		});
 		trace("Discord Client initialized");
+		isInitialized = true;
 	}
 
 	public static function changePresence(details:String, state:Null<String>, ?smallImageKey : String, ?hasStartTimestamp : Bool, ?endTimestamp: Float)
