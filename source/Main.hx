@@ -35,7 +35,7 @@ class Main extends Sprite
 		SUtil.uncaughtErrorHandler();
 		//#end
 
-		SUtil.saveContent("your file name", ".txt", "lololol");
+		//SUtil.saveContent("your file name", ".txt", "lololol");
 		if (stage != null)
 		{
 			init();
