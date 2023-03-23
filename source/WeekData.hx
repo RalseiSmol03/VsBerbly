@@ -1,9 +1,9 @@
 package;
 
-//#if MODS_ALLOWED
+#if MODS_ALLOWED
 import sys.io.File;
 import sys.FileSystem;
-//#end
+#end
 import lime.utils.Assets;
 import openfl.utils.Assets as OpenFlAssets;
 import haxe.Json;
@@ -81,6 +81,7 @@ class WeekData {
 	{
 		weeksList = [];
 		weeksLoaded.clear();
+		#if MODS_ALLOWED
 		var disabledMods:Array<String> = [];
 		var modsListPath:String = SUtil.getStorageDirectory() + 'modsList.txt';
 		var directories:Array<String> = [Paths.mods(), SUtil.getStorageDirectory() + Paths.getPreloadPath()];
@@ -107,7 +108,7 @@ class WeekData {
 				}
 			}
 		}
-		#if MODS_ALLOWED
+
 		var modsDirectories:Array<String> = Paths.getModDirectories();
 		for (folder in modsDirectories)
 		{
@@ -124,8 +125,6 @@ class WeekData {
 		#end
 
 		var sexList:Array<String> = CoolUtil.coolTextFile(SUtil.getStorageDirectory() + Paths.getPreloadPath('weeks/weekList.txt'));
-
-		#if MODS_ALLOWED
 		for (i in 0...sexList.length) {
 			for (j in 0...directories.length) {
 				var fileToCheck:String = directories[j] + 'weeks/' + sexList[i] + '.json';
@@ -134,11 +133,11 @@ class WeekData {
 					if(week != null) {
 						var weekFile:WeekData = new WeekData(week);
 
-						//#if MODS_ALLOWED
+						#if MODS_ALLOWED
 						if(j >= originalLength) {
 							weekFile.folder = directories[j].substring(Paths.mods().length, directories[j].length-1);
 						}
-						//#end
+						#end
 
 						if(weekFile != null && (isStoryMode == null || (isStoryMode && !weekFile.hideStoryMode) || (!isStoryMode && !weekFile.hideFreeplay))) {
 							weeksLoaded.set(sexList[i], weekFile);
@@ -186,7 +185,9 @@ class WeekData {
 				var weekFile:WeekData = new WeekData(week);
 				if(i >= originalLength)
 				{
+					#if MODS_ALLOWED
 					weekFile.folder = directory.substring(Paths.mods().length, directory.length-1);
+					#end
 				}
 
 				if((PlayState.isStoryMode && !weekFile.hideStoryMode) || (!PlayState.isStoryMode && !weekFile.hideFreeplay))
@@ -233,5 +234,27 @@ class WeekData {
 		if(data != null && data.folder != null && data.folder.length > 0) {
 			Paths.currentModDirectory = data.folder;
 		}
+	}
+
+	public static function loadTheFirstEnabledMod()
+	{
+		Paths.currentModDirectory = '';
+		
+		#if MODS_ALLOWED
+		if (FileSystem.exists(SUtil.getStorageDirectory() + "modsList.txt"))
+		{
+			var list:Array<String> = CoolUtil.listFromString(File.getContent(SUtil.getStorageDirectory() + "modsList.txt"));
+			var foundTheTop = false;
+			for (i in list)
+			{
+				var dat = i.split("|");
+				if (dat[1] == "1" && !foundTheTop)
+				{
+					foundTheTop = true;
+					Paths.currentModDirectory = dat[0];
+				}
+			}
+		}
+		#end
 	}
 }
