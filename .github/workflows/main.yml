@@ -43,6 +43,8 @@ jobs:
           haxelib install hxcpp > /dev/null --quiet
           haxelib install hmm --quiet
           haxelib run hmm install
+          haxelib install lime 7.9.0 --quiet 
+          haxelib install openfl 9.1.0 --quiet
 
       - name: Configure Android
         run: |
