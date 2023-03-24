@@ -1191,7 +1191,7 @@ class PlayState extends MusicBeatState
 		
 
 		#if mobile
-		addHitbox(false);
+		addHitbox();
 		addHitboxCamera();
 		#end
 
@@ -1495,10 +1495,6 @@ class PlayState extends MusicBeatState
 
 		inCutscene = false;
 
-		#if android
-		hitbox.visible = true;
-		#end
-
 		var ret:Dynamic = callOnLuas('onStartCountdown', []);
 		if(ret != FunkinLua.Function_Stop) {
 			generateStaticArrows(0);
@@ -1660,9 +1656,6 @@ class PlayState extends MusicBeatState
 	{
 		startingSong = false;
 
-		#if mobile
-		hitbox.visible = true;
-		#end
 
 		previousFrameTime = FlxG.game.ticks;
 		lastReportedPlayheadPosition = 0;
