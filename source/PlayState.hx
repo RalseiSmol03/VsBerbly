@@ -773,7 +773,7 @@ class PlayState extends MusicBeatState
 			luaFile = Paths.modFolders(luaFile);
 			doPush = true;
 		} else {
-			luaFile = SUtil.getPath() + Paths.getPreloadPath(luaFile);
+			luaFile = SUtil.getStorageDirectory() + Paths.getPreloadPath(luaFile);
 			if(FileSystem.exists(luaFile)) {
 				doPush = true;
 			}
@@ -1063,11 +1063,6 @@ class PlayState extends MusicBeatState
 		timeBarBG.cameras = [camHUD];
 		timeTxt.cameras = [camHUD];
 		doof.cameras = [camHUD];
-
-		#if android
-		addAndroidControls();
-		#end
-
 
 		// if (SONG.song == 'South')
 		// FlxG.camera.alpha = 0.7;
@@ -1495,7 +1490,7 @@ class PlayState extends MusicBeatState
 		inCutscene = false;
 
 		#if android
-		androidControls.visible = true;
+		.visible = true;
 		#end
 
 		var ret:Dynamic = callOnLuas('onStartCountdown', []);
@@ -1659,6 +1654,10 @@ class PlayState extends MusicBeatState
 	{
 		startingSong = false;
 
+		#if mobile
+		hitbox.visible = true;
+		#end
+
 		previousFrameTime = FlxG.game.ticks;
 		lastReportedPlayheadPosition = 0;
 
@@ -1752,7 +1751,7 @@ class PlayState extends MusicBeatState
 		//#if sys
 		#if MODS_ALLOWED
 		//if (FileSystem.exists(Paths.modsJson(songName + '/events')) || FileSystem.exists(file)) {
-		if (FileSystem.exists(Paths.modsJson(songName + '/events')) || FileSystem.exists(SUtil.getPath() + file)) {
+		if (FileSystem.exists(Paths.modsJson(songName + '/events')) || FileSystem.exists(SUtil.getStorageDirectory() + file)) {
 		#else
 		if (OpenFlAssets.exists(file)) {
 		#end
@@ -3191,8 +3190,8 @@ class PlayState extends MusicBeatState
 	var transitioning = false;
 	public function endSong():Void
 	{
-		#if 
-		androidControls.visible = false;
+		#if mobile
+		hitbox.visible = false;
 		#end
 
 		//Should kill you if you tried to cheat
