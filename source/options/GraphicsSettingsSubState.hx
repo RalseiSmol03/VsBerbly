@@ -68,7 +68,7 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 			'If checked, images loaded will stay in memory\nuntil the game is closed, this increases memory usage,\nbut basically makes reloading times instant. (Set to true by DEFAULT for some reason.',
 			'imagesPersist',
 			'bool',
-			true);
+			#if android true #else false #end);
 		option.onChange = onChangePersistentData; //Persistent Cached Data changes FlxGraphic.defaultPersist
 		addOption(option);
 		super();
