@@ -251,7 +251,7 @@ class BaseOptionsMenu extends MusicBeatSubstate
 				}
 			}
 
-			if(controls.RESET #if android || virtualpad.buttonC.justpressed #end)
+			if(controls.RESET #if android || virtualPad.buttonC.justpressed #end)
 			{
 				for (i in 0...optionsArray.length)
 				{
