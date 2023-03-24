@@ -10,6 +10,10 @@ import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import flixel.tweens.FlxEase;
 import flixel.tweens.FlxTween;
+#if android
+import flash.system.System;
+import lime.app.Application;
+#end
 #if desktop
 import sys.FileSystem;
 import sys.io.File;
@@ -17,6 +21,8 @@ import sys.io.File;
 
 class GameOverSubstate extends MusicBeatSubstate
 {
+	var trollMsg:String = '';
+	var delay:FlxTimer;
 	public var boyfriend:Boyfriend;
 	var camFollow:FlxPoint;
 	var camFollowPos:FlxObject;
@@ -135,6 +141,11 @@ class GameOverSubstate extends MusicBeatSubstate
 		camFollowPos = new FlxObject(0, 0, 1, 1);
 		camFollowPos.setPosition(FlxG.camera.scroll.x + (FlxG.camera.width / 2), FlxG.camera.scroll.y + (FlxG.camera.height / 2));
 		add(camFollowPos);
+
+		#if android
+		addVirtualPad(LEFT_RIGHT, A);
+		addVirtualPadCamera();
+		#end
 	}
 
 	override function update(elapsed:Float)
@@ -155,8 +166,14 @@ class GameOverSubstate extends MusicBeatSubstate
 			}
 			else{
 				FlxG.sound.play(Paths.sound('underselect'));
-				Sys.command('mshta vbscript:Execute("msgbox ""LOL WHAT A NOOB :troll: :troll:"":close")');
-				Sys.exit(0);
+				delay = new FlxTimer().start(0.5, function(tmr:FlxTimer) {
+						if(tmr.finished) {
+							showTroll();
+						}
+					}, 1);
+				FlxG.sound.destroy(Paths.sound(normalLoopSound)); //idk if this works
+				//Sys.command('mshta vbscript:Execute("msgbox ""LOL WHAT A NOOB :troll: :troll:"":close")');
+				//Sys.exit(0);
 				
 			}
 		}
@@ -244,5 +261,10 @@ class GameOverSubstate extends MusicBeatSubstate
 			});
 			PlayState.instance.callOnLuas('onGameOverConfirm', [true]);
 		}
+	}
+	function showTroll() {
+		trollMsg += "LOL WHAT A NOOB :troll: :troll:";
+		Application.current.window.alert(trollMsg);
+		System.exit(1);
 	}
 }
