@@ -114,7 +114,7 @@ class ControlsSubState extends MusicBeatSubstate {
 		changeSelection();
 
 		#if mobile
-		addualPad(LEFT_FULL, A_B);
+		addVirtualPad(LEFT_FULL, A_B);
 		addVirtualPadCamera();
 		#end
 	}
