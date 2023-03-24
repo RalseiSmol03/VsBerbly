@@ -116,6 +116,19 @@ class PauseSubState extends MusicBeatSubstate
 		changeSelection();
 
 		cameras = [FlxG.cameras.list[FlxG.cameras.list.length - 1]];
+
+		#if mobile
+		/*if (PlayState.chartingMode)
+		{
+			addVirtualPad(LEFT_FULL, A);
+		}
+		else*/
+		//{
+		addVirtualPad(UP_DOWN, A); // I think 0.5 doesn't have charting mode
+		//}
+		addVirtualPadCamera();
+		#end
+
 	}
 
 	override function update(elapsed:Float)
