@@ -1,4 +1,4 @@
-# Friday Night Funkin' - Psych Engine
+# Friday Night Funkin' - Psych Engine: Berbly Mod Android Port
 Engine originally used on [Mind Games Mod](https://gamebanana.com/mods/301107), intended to be a fix for the vanilla version's many issues while keeping the casual play aspect of it. Also aiming to be an easier alternative to newbie coders.
 
 ## Installation:
@@ -91,3 +91,20 @@ _____________________________________
 * Some stuff based on Week 7's changes has been put in (Background colors on Freeplay, Note splashes)
 * You can reset your Score on Freeplay/Story Mode by pressing Reset button.
 * You can listen to a song or adjust Scroll Speed/Damage taken/etc. on Freeplay by pressing Space.
+----------------
+
+## Android Port Credits:
+* Ralsei - Main Porter/The Dumb
+* MA Jigsaw - Android Porter/Android Controls Owner
+
+## This Port change some stuff like:
+* Removed Unnecessary Options(Including Not Mobile Controls)
+* Better Settings Defaults
+* Faster Loading than any Berdly Ports
+* Removed Useless Stuff(like Mods)
+
+## Note and Warnings:
+* Precaching is **ENABLED** by default. You can change it on Options if you don't want it.
+* **Hitbox** is only controller on Song Start, because of latest Android Controls(removed VPAD Support)(I'll try to restore it)
+* Using Precaching needs at least **4GB RAM**, recommended is **6GB RAM**. Using low-end devies/low ram devices will freeze or lag the game.
+* Tell me if there's bug or something wrong in the port.
