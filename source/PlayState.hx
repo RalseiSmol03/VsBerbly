@@ -1490,7 +1490,7 @@ class PlayState extends MusicBeatState
 		inCutscene = false;
 
 		#if android
-		.visible = true;
+		hitbox.visible = true;
 		#end
 
 		var ret:Dynamic = callOnLuas('onStartCountdown', []);
