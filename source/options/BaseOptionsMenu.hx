@@ -126,10 +126,10 @@ class BaseOptionsMenu extends MusicBeatSubstate
 		changeSelection();
 		reloadCheckboxes();
 
-		#if mobile
+		/*#if mobile
 		addVirtualPad(LEFT_FULL, A_B);
 		addVirtualPadCamera();
-		#end
+		#end*/
 	}
 
 	public function addOption(option:Option) {
