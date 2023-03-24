@@ -249,12 +249,12 @@ class StoryMenuState extends MusicBeatState
 			if(FlxG.keys.justPressed.CONTROL #if android || virtualPad.buttonX.justPressed #end)
 			{
 				#if mobile
-				removeualPad();
+				removeVirtualPad();
 				#end
 				persistentUpdate = false;
 				openSubState(new GameplayChangersSubstate());
 			}
-			else if(controls.RESET #if android || ualPad.buttonY.justPressed #end)
+			else if(controls.RESET #if android || virtualPad.buttonY.justPressed #end)
 			{
 				#if mobile
 				removeVirtualPad();
