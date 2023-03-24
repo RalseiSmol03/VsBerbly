@@ -267,6 +267,7 @@ class StoryMenuState extends MusicBeatState
 			{
 				selectWeek();
 				FlxTween.tween(loadscreen, {alpha: 1}, 1.0, {ease: FlxEase.expoInOut});
+				FlxTween.tween(loadscreen, {alpha: 0}, 1.0, {ease: FlxEase.expoInOut});
 			}
 		}
 
