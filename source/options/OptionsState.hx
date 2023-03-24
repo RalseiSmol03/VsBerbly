@@ -99,7 +99,7 @@ class OptionsState extends MusicBeatState
 		add(selectorRight);
 
 		#if android
-		var tipText:FlxText = new FlxText(10, FlxG.height - 24, 0, 'Press C to customize your android controls', 16);
+		var tipText:FlxText = new FlxText(10, FlxG.height - 24, 0, 'No Android Controls Option because of Latest Android Controller Stuff.', 16);
 		tipText.setFormat(Paths.font('vcr.ttf'), 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		tipText.borderSize = 2.4;
 		tipText.scrollFactor.set();
@@ -109,7 +109,7 @@ class OptionsState extends MusicBeatState
 		changeSelection();
 		ClientPrefs.saveSettings();
 
-		#if android
+		#if 
 		addVirtualPad(UP_DOWN, A_B_C);
 		virtualPad.y = -24;
 		#end
