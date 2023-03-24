@@ -374,7 +374,7 @@ class FreeplayState extends MusicBeatState
 		else if(controls.RESET #if android || virtualPad.buttonY.justPressed #end)
 		{
 			#if android
-			removeualPad();
+			removeVirtualPad();
 			#end
 			openSubState(new ResetScoreSubState(songs[curSelected].songName, curDifficulty, songs[curSelected].songCharacter));
 			FlxG.sound.play(Paths.sound('scrollMenu'));
