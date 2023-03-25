@@ -29,6 +29,8 @@ using StringTools;
 
 class GraphicsSettingsSubState extends BaseOptionsMenu
 {
+	var persist:Option;
+
 	public function new()
 	{
 		title = 'Graphics';
@@ -64,13 +66,13 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 		option.onChange = onChangeFramerate;
 		#end
 
-		public var option:Option = new Option('Persistent Cached Data',
+		persist = new Option('Persistent Cached Data',
 			'If checked, images loaded will stay in memory\nuntil the game is closed, this increases memory usage,\nbut basically makes reloading times instant. (Set to true by DEFAULT for some reason.',
 			'imagesPersist',
-			'bool',
+			'precache',
 			#if android true #else false #end);
-		option.onChange = onChangePersistentData; //Persistent Cached Data changes FlxGraphic.defaultPersist
-		addOption(option);
+		persist.onChange = onChangePersistentData; //Persistent Cached Data changes FlxGraphic.defaultPersist
+		addOption(persist);
 		super();
 	}
 
