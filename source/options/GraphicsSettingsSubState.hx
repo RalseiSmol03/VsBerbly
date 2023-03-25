@@ -66,7 +66,7 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 		option.onChange = onChangeFramerate;
 		#end
 
-		option = new Option('Persistent Cached Data',
+		this.option = new Option('Persistent Cached Data',
 			'If checked, images loaded will stay in memory\nuntil the game is closed, this increases memory usage,\nbut basically makes reloading times instant. (Set to true by DEFAULT for some reason.',
 			'imagesPersist',
 			'precache',
