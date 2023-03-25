@@ -203,6 +203,11 @@ class TitleState extends MusicBeatState
 			});
 		}
 		#end
+		if (ClientPrefs.imagesPersist) {
+			ClientPrefs.imagesPersist = false; // to turn off precache temporarily
+		} else {
+			//do nothing
+		}
 	}
 
 	var logoBl:FlxSprite;
