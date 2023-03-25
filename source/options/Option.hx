@@ -74,6 +74,8 @@ class Option
 					if(options.length > 0) {
 						defaultValue = options[0];
 					}
+				case 'precache':
+					defaultValue = true;
 			}
 		}
 
