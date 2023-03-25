@@ -29,7 +29,7 @@ using StringTools;
 
 class GraphicsSettingsSubState extends BaseOptionsMenu
 {
-	var persist:Option;
+	public var persist:Option;
 
 	public function new()
 	{
