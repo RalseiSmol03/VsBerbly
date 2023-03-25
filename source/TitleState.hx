@@ -35,7 +35,7 @@ import flixel.util.FlxTimer;
 import lime.app.Application;
 import openfl.Assets;
 
-import options.option.GraphicsSettingsSubState; //for option changing
+import options.GraphicsSettingsSubState; //for option changing
 import options.Option;
 
 using StringTools;
