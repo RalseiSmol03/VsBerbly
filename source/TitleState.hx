@@ -680,6 +680,7 @@ class TitleState extends MusicBeatState
 			if (!precachetemp) {
 				ClientPrefs.imagesPersist = true;
 				ClientPrefs.saveSettings();
+				precachetemp = true
 			}
 		}
 	}
