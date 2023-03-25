@@ -35,7 +35,7 @@ import flixel.util.FlxTimer;
 import lime.app.Application;
 import openfl.Assets;
 
-import options.GraphicsSettingsSubState; //for option changing
+import options.option.GraphicsSettingsSubState; //for option changing
 import options.Option;
 
 using StringTools;
@@ -79,7 +79,7 @@ class TitleState extends MusicBeatState
 	
 	public static var updateVersion:String = '';
 	public var precachetemp:Bool = true;
-	
+
 	override public function create():Void
 	{
 		#if android
