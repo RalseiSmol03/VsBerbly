@@ -75,7 +75,8 @@ class TitleState extends MusicBeatState
 	var titleJSON:TitleData;
 	
 	public static var updateVersion:String = '';
-
+	public var precachetemp:Bool = true;
+	
 	override public function create():Void
 	{
 		#if android
@@ -203,8 +204,11 @@ class TitleState extends MusicBeatState
 			});
 		}
 		#end
-		if (ClientPrefs.imagesPersist) {
+		if (ClientPrefs.imagesPersist && precachetemp) {
 			ClientPrefs.imagesPersist = false; // to turn off precache temporarily
+			precachetemp = true;
+			trace("Temp Precache On!");
+			precachetemp = false;
 		} else {
 			//do nothing
 		}
@@ -673,6 +677,11 @@ class TitleState extends MusicBeatState
 			FlxG.camera.flash(FlxColor.WHITE, 4);
 			remove(credGroup);
 			skippedIntro = true;
+
+			if (!precachetemp) {
+				ClientPrefs.imagesPersist = true;
+				trace("Temp Precache On!");
+			}
 		}
 	}
 }
