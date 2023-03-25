@@ -29,8 +29,6 @@ using StringTools;
 
 class GraphicsSettingsSubState extends BaseOptionsMenu
 {
-	public var option:Option;
-
 	public function new()
 	{
 		title = 'Graphics';
@@ -66,7 +64,7 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 		option.onChange = onChangeFramerate;
 		#end
 
-		this.option = new Option('Persistent Cached Data',
+		var option:Option = new Option('Persistent Cached Data',
 			'If checked, images loaded will stay in memory\nuntil the game is closed, this increases memory usage,\nbut basically makes reloading times instant. (Set to true by DEFAULT for some reason.',
 			'imagesPersist',
 			'precache',
