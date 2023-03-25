@@ -102,7 +102,7 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 		}
 	}
 
-	function onChangePersistentData()
+	public function onChangePersistentData()
 	{
 		FlxGraphic.defaultPersist = ClientPrefs.imagesPersist;
 	}
