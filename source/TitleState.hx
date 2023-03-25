@@ -19,7 +19,7 @@ import openfl.display.BitmapData;
 import sys.FileSystem;
 import sys.io.File;
 #end
-//import flixel.graphics.FlxGraphic;
+import flixel.graphics.FlxGraphic;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.group.FlxGroup;
 import flixel.input.gamepad.FlxGamepad;
@@ -206,8 +206,8 @@ class TitleState extends MusicBeatState
 		#end
 		if (ClientPrefs.imagesPersist && precachetemp) {
 			ClientPrefs.imagesPersist = false; // to turn off precache temporarily
-			precachetemp = true;
-			trace("Temp Precache On!");
+			FlxGraphic.defaultPersist = ClientPrefs.imagesPersist;
+			//trace("Temp Precache On!");
 			precachetemp = false;
 		} else {
 			//do nothing
@@ -680,7 +680,8 @@ class TitleState extends MusicBeatState
 
 			if (!precachetemp) {
 				ClientPrefs.imagesPersist = true;
-				trace("Temp Precache On!");
+				FlxGraphic.defaultPersist = ClientPrefs.imagesPersist;
+				//trace("Temp Precache On!");
 			}
 		}
 	}
