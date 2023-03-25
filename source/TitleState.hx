@@ -35,9 +35,6 @@ import flixel.util.FlxTimer;
 import lime.app.Application;
 import openfl.Assets;
 
-import options.GraphicsSettingsSubState; //for option changing
-import options.Option;
-
 using StringTools;
 typedef TitleData =
 {
@@ -79,7 +76,6 @@ class TitleState extends MusicBeatState
 	
 	public static var updateVersion:String = '';
 	public var precachetemp:Bool = true;
-	var graphs = new GraphicsSettingsSubState();
 
 	override public function create():Void
 	{
@@ -211,8 +207,6 @@ class TitleState extends MusicBeatState
 		if (ClientPrefs.imagesPersist && precachetemp) {
 			ClientPrefs.imagesPersist = false; // to turn off precache temporarily
 			ClientPrefs.saveSettings();
-			//graphs.option.onChange = graphs.onChangePersistentData; crashing
-			//trace("Temp Precache On!");
 			precachetemp = false;
 		} else {
 			//do nothing
@@ -686,8 +680,6 @@ class TitleState extends MusicBeatState
 			if (!precachetemp) {
 				ClientPrefs.imagesPersist = true;
 				ClientPrefs.saveSettings();
-				//graphs.option.onChange = graphs.onChangePersistentData; //tried, but crashing
-				//trace("Temp Precache On!");
 			}
 		}
 	}
