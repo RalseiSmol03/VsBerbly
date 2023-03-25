@@ -210,7 +210,8 @@ class TitleState extends MusicBeatState
 		#end
 		if (ClientPrefs.imagesPersist && precachetemp) {
 			ClientPrefs.imagesPersist = false; // to turn off precache temporarily
-			graphs.option.onChange = graphs.onChangePersistentData;
+			ClientPrefs.saveSettings();
+			//graphs.option.onChange = graphs.onChangePersistentData; crashing
 			//trace("Temp Precache On!");
 			precachetemp = false;
 		} else {
@@ -684,7 +685,8 @@ class TitleState extends MusicBeatState
 
 			if (!precachetemp) {
 				ClientPrefs.imagesPersist = true;
-				graphs.option.onChange = graphs.onChangePersistentData;
+				ClientPrefs.saveSettings();
+				//graphs.option.onChange = graphs.onChangePersistentData; //tried, but crashing
 				//trace("Temp Precache On!");
 			}
 		}
