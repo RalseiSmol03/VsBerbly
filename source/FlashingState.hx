@@ -44,6 +44,8 @@ class FlashingState extends MusicBeatState
 				leftState = true;
 				FlxTransitionableState.skipNextTransIn = true;
 				FlxTransitionableState.skipNextTransOut = true;
+				ClientPrefs.imagesPersist = true;
+				ClientPrefs.saveSettings();
 				if(!back) {
 					ClientPrefs.flashing = false;
 					ClientPrefs.saveSettings();
