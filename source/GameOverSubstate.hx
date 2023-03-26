@@ -254,10 +254,10 @@ class GameOverSubstate extends MusicBeatSubstate
 			isEnding = true;
 			boyfriend.playAnim('deathConfirm', true);
 			FlxG.sound.music.stop();
+			FlxTween.tween(virtualPad, {alpha: 0}, 2.0);
 			new FlxTimer().start(0.7, function(tmr:FlxTimer)
 			{
 				FlxG.camera.fade(FlxColor.BLACK, 2, false, function()
-				FlxTween.tween(virtualPad, {alpha: 0}, 2.0);
 				{
 					MusicBeatState.resetState();
 				});
