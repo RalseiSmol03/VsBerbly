@@ -76,7 +76,7 @@ class Main extends Sprite
 
 		ClientPrefs.loadDefaultKeys();
 
-		//SUtil.checkFiles(); //I'll try this to uncomment if it'll work with internal
+		SUtil.checkFiles();
 		addChild(new FlxGame(gameWidth, gameHeight, initialState, zoom, framerate, framerate, skipSplash, startFullscreen));
 
 		//#if !mobile
