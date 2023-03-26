@@ -114,6 +114,7 @@ class GameOverSubstate extends MusicBeatSubstate
 					{
 						select.animation.play('show');
 						FlxTween.tween(select,{alpha:1},0.1);
+						FlxTween.tween(virtualPad, {alpha: 1}, 0.1);
 					}});
 			}
 		
@@ -144,6 +145,7 @@ class GameOverSubstate extends MusicBeatSubstate
 
 		#if android
 		addVirtualPad(LEFT_RIGHT, A);
+		virtualPad.alpha = 0;
 		addVirtualPadCamera();
 		#end
 	}
@@ -255,6 +257,7 @@ class GameOverSubstate extends MusicBeatSubstate
 			new FlxTimer().start(0.7, function(tmr:FlxTimer)
 			{
 				FlxG.camera.fade(FlxColor.BLACK, 2, false, function()
+				FlxTween.tween(virtualPad, {alpha: 0}, 2.0);
 				{
 					MusicBeatState.resetState();
 				});
