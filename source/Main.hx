@@ -32,7 +32,7 @@ class Main extends Sprite
 		super();
 
 		//#if CRASH_HANDLER
-		SUtil.uncaughtErrorHandler();
+		//SUtil.uncaughtErrorHandler(); //I'll try this to uncomment if it'll work with internal
 		//#end
 
 		//SUtil.saveContent("your file name", ".txt", "lololol");
