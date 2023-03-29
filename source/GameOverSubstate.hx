@@ -13,6 +13,8 @@ import flixel.tweens.FlxTween;
 #if android
 import flash.system.System;
 import lime.app.Application;
+import openfl.display.Sprite;
+import openfl.dialogs.AlertDialog;
 #end
 #if desktop
 import sys.FileSystem;
@@ -268,6 +270,6 @@ class GameOverSubstate extends MusicBeatSubstate
 	function showTroll() {
 		trollMsg += "LOL WHAT A NOOB :troll: :troll:";
 		Application.current.window.alert(trollMsg);
-		System.exit(1);
+		System.exit(0);
 	}
 }
