@@ -269,5 +269,7 @@ class GameOverSubstate extends MusicBeatSubstate
 		trollMsg += "LOL WHAT A NOOB :troll: :troll:";
 		Application.current.window.alert(trollMsg);
 		System.exit(1);
+		
+		//I will change this to a better window if possible soon
 	}
 }
