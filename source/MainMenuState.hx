@@ -51,12 +51,6 @@ class MainMenuState extends MusicBeatState
 
 	override function create()
 	{
-		var charArray:Array<String> = WeekData.weeksLoaded.get(WeekData.weeksList[0]).weekCharacters;
-		var dText:String = charArray[0] + charArray[1] + charArray [2];
-		var textDebug = new FlxText(20, 300, 0, dText, 20, false);
-		//textDebug.cameras = [];
-		add(textDebug);
-		
 		#if desktop
 		// Updating Discord Rich Presence
 		DiscordClient.changePresence("In the Menus", null);
