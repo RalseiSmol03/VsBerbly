@@ -170,12 +170,10 @@ class FunkinLua {
 			var cervix = luaFile + ".lua";
 			var doPush = false;
 			
-			cervix = Paths.getPreloadPath(cervix);
-			if(FileSystem.exists(cervix)) {
+			if(FileSystem.exists(Paths.getPreloadPath(cervix))) {
+				cervix = Paths.getPreloadPath(cervix);
 				doPush = true;
 			}
-		}
-
 			if(doPush)
 			{
 				if(!ignoreAlreadyRunning)
@@ -1051,7 +1049,6 @@ class FunkinLua {
 		Lua_helper.add_callback(lua, "startDialogue", function(dialogueFile:String, music:String = null) {
 			var path:String = Paths.json(Paths.formatToSongPath(PlayState.SONG.song) + '/' + dialogueFile);
 			luaTrace('Trying to load dialogue: ' + path);
-
 			if(FileSystem.exists(path)) {
 				var shit:DialogueFile = DialogueBoxPsych.parseDialogue(path);
 				if(shit.dialogue.length > 0) {
