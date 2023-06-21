@@ -809,7 +809,7 @@ class ChartingState extends MusicBeatState
 		}
 
 		#if LUA_ALLOWED
-		var directories:Array<String> = [Paths.getPreloadPath('custom_notetypes/');
+		var directories:Array<String> = Paths.getPreloadPath('custom_notetypes/');
 		for (i in 0...directories.length) {
 			var directory:String =  directories[i];
 			if(FileSystem.exists(directory)) {
