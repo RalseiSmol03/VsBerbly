@@ -125,30 +125,22 @@ class WeekData {
 		#end
 
 		var sexList:Array<String> = CoolUtil.coolTextFile(Paths.getPreloadPath('weeks/weekList.txt'));
-		for (i in 0...sexList.length)
-		{
-			for (j in 0...directories.length)
-			{
-				var fileToCheck:String = directories[j] + 'weeks/' + sexList[i] + '.json';
-				if (!weeksLoaded.exists(sexList[i]))
-				{
+		for (i in 0...sexList.length) {
+			for (j in 0...directories.length) {
+				//var fileToCheck:String = directories[j] + 'weeks/' + sexList[i] + '.json';
+				var fileToCheck:String = Paths.getPreloadPath('weeks/week1.json'); //direct test
+				if(!weeksLoaded.exists(sexList[i])) {
 					var week:WeekFile = getWeekFile(fileToCheck);
-					if (week != null)
-					{
-						var weekFile:WeekData = new WeekData(week, sexList[i]);
+					if(week != null) {
+						var weekFile:WeekData = new WeekData(week);
 
 						#if MODS_ALLOWED
-						if (j >= originalLength)
-						{
-							weekFile.folder = directories[j].substring(Paths.mods().length, directories[j].length - 1);
+						if(j >= originalLength) {
+							weekFile.folder = directories[j].substring(Paths.mods().length, directories[j].length-1);
 						}
 						#end
 
-						if (weekFile != null
-							&& (isStoryMode == null
-								|| (isStoryMode && !weekFile.hideStoryMode)
-								|| (!isStoryMode && !weekFile.hideFreeplay)))
-						{
+						if(weekFile != null && (isStoryMode == null || (isStoryMode && !weekFile.hideStoryMode) || (!isStoryMode && !weekFile.hideFreeplay))) {
 							weeksLoaded.set(sexList[i], weekFile);
 							weeksList.push(sexList[i]);
 						}
